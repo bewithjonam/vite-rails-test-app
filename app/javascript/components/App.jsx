@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.style.scss';
 
 const App = () => {
   const [data, setData] = React.useState([]);
