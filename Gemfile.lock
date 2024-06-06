@@ -82,16 +82,16 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.6.1)
+    mini_portile2 (2.8.7)
     minitest (5.14.4)
     nio4r (2.5.8)
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.16.5)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.2.3)
     puma (5.4.0)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.8.0)
     rack (2.2.3)
     rack-proxy (0.7.0)
       rack
@@ -174,7 +174,7 @@ DEPENDENCIES
   vite_rails
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.1.2
