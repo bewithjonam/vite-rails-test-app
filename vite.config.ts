@@ -7,24 +7,11 @@ const TARGET = process.env.TARGET ||'web';
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    // dynamicImport({
-      
-    // })
-    // replace({
-    //   include: '**/web.jsx',
-    //   values: {
-    //     '[TARGET]': 'web',
-    //   },
-    //   delimiters: ['', '']
-    // })
   ],
   resolve: {
     extensions: [
       '.js', '.ts', '.jsx', '.tsx', '.json', '.mjs', '.vue',
       `.${TARGET}.jsx`, `.${TARGET}.js`, `.${TARGET}.scss`, `.${TARGET}.css`
     ],
-    alias: [
-      { find: '@', replacement: 'abcd', customResolver: () => {} },
-    ]
   }
 })
