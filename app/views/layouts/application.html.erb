@@ -8,15 +8,38 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'web.jsx' %>
-    <%= vite_stylesheet_tag 'web.jsx' %>
 
+    <% if params[:target] == 'm' || browser.device.mobile? %>
+    <script>var isMobile = true;</script>
     <%= vite_javascript_tag 'mobile.jsx' %>
     <%= vite_stylesheet_tag 'mobile.jsx' %>
-
+    <% else %>
+    <script>var isMobile = false;</script>
+    <%= vite_javascript_tag 'web.jsx' %>
+    <%= vite_stylesheet_tag 'web.jsx' %>
+    <% end %>  
   </head>
 
   <body>
     <%= yield %>
+    <script>
+      (function() {
+        var breakpoint = 768;
+        var findIsMobile = () => document.body.clientWidth < breakpoint;
+        var reloadWithTarget = (target) => {
+          const url = new URL(location.href);
+          url.searchParams.set('target', target);
+          location.assign(url.search);
+        }
+        var onResize = () => {
+          if (isMobile !== findIsMobile()) {
+            window.removeEventListener('resize', onResize);
+            reloadWithTarget(findIsMobile() ? 'm' : 'w');
+          }
+        };
+        window.addEventListener('load', onResize);
+        window.addEventListener('resize', onResize);
+      })();
+    </script>
   </body>
 </html>

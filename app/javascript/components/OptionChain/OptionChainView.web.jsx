@@ -1,7 +1,12 @@
-import react from 'react';
+import React from 'react';
+import './OptionChainView.style.web.scss';
 
 const OptionChainView = (props) => {
-  return "Web View";
+  return (
+    <div className="option-chain-view">
+      Web View
+    </div>
+  );
 };
 
 export default OptionChainView;
