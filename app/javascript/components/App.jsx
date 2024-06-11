@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.style.scss';
 
+import OptionChain from './OptionChain'
+
 const App = () => {
   const [data, setData] = React.useState([]);
   React.useEffect(() => {
@@ -12,6 +14,10 @@ const App = () => {
     <div>
       Articles
       {data.map(({title}) => <div>{title}</div>)}
+
+      <br/>
+      <br/>
+      <OptionChain />
     </div>
   );
 };
